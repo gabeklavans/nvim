@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.keymap.set("n", "<leader>oe", vim.cmd.Ex, { desc = "[O]pen N[e]twr" })
+
 vim.keymap.set('n', "<leader>n", ":nohl<CR>", { desc = "[N]o Highlighting"})
 
 -- indent-respecting block-moves
