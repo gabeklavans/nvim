@@ -5,13 +5,14 @@ return {
     dependencies = {
         "neovim/nvim-lspconfig",
         "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-path",
         "saadparwaiz1/cmp_luasnip",
         "hrsh7th/nvim-cmp",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
     },
-    config = function ()
+    config = function()
         local lsp_zero = require("lsp-zero")
 
         lsp_zero.on_attach(function(client, bufnr)
@@ -47,6 +48,21 @@ return {
                         capabilities = capabilities,
                     })
                 end,
+
+                ["lua_ls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.lua_ls.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            Lua = {
+                                diagnostics = {
+                                    globals = { "vim", "it", "describe", "before_each", "after_each" },
+                                }
+                            }
+                        }
+                    }
+                end,
+
             },
         })
 
@@ -61,9 +77,9 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                    ["<C-Space>"] = cmp.mapping.confirm({select = true}),
-                    ["<Tab>"] = cmp_action.luasnip_supertab(),
-                    ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+                ["<C-Space>"] = cmp.mapping.confirm({ select = true }),
+                ["<Tab>"] = cmp_action.luasnip_supertab(),
+                ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
             }),
             preselect = "item",
             completion = {
@@ -71,6 +87,7 @@ return {
             },
             sources = {
                 { name = "nvim_lsp" },
+                { name = "nvim_lua" },
                 { name = "luasnip" },
                 { name = "path" },
             },
