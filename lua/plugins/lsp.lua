@@ -7,7 +7,6 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-path",
         "hrsh7th/nvim-cmp",
-        "saadparwaiz1/cmp_luasnip",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
     },
@@ -60,8 +59,9 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                    ['<Tab>'] = cmp_action.luasnip_supertab(),
-                    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+                    ["<C-Space>"] = cmp.mapping.confirm({select = true}),
+                    ["<Tab>"] = cmp_action.luasnip_supertab(),
+                    ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
             }),
             preselect = "item",
             completion = {
