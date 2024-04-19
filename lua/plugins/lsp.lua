@@ -6,6 +6,7 @@ return {
         "neovim/nvim-lspconfig",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-path",
+        "saadparwaiz1/cmp_luasnip",
         "hrsh7th/nvim-cmp",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
