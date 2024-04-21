@@ -1,6 +1,5 @@
 local function codestats()
-    -- return "C::S ".. require('codestats-nvim').get_xp_count()
-    return "C::S"
+    return "C::S ".. require('codestats-nvim').get_xp_count()
 end
 
 return {
