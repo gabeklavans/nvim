@@ -27,3 +27,8 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Relative previous
 -- always be tweaking the config...
 vim.keymap.set("n", "<leader>nec", "<cmd>e ~/.config/nvim<CR>", { desc = "[N]eovim [E]dit [C]onfig"});
 
+-- splits 
+vim.keymap.set('n', '<ca-h>', '<C-w>h', { silent = true })
+vim.keymap.set('n', '<ca-j>', '<C-w>j', { silent = true })
+vim.keymap.set('n', '<ca-k>', '<C-w>k', { silent = true })
+vim.keymap.set('n', '<ca-l>', '<C-w>l', { silent = true })
