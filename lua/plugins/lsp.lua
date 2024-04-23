@@ -84,7 +84,6 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ["<C-Space>"] = cmp.mapping.confirm({ select = true }),
                 ["<Tab>"] = cmp_action.luasnip_supertab(),
                 ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
             }),
