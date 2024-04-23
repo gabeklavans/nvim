@@ -2,8 +2,18 @@ return {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function ()
-        require("telescope").setup({})
+    config = function()
+        -- this has to go in here instead of in `opts` for some reason
+        require("telescope").setup {
+            pickers = {
+                live_grep = {
+                    additional_args = function(opts)
+                        return { "--hidden" }
+                    end
+                },
+            },
+        }
+
         local builtin = require("telescope.builtin")
 
         local function telescope_live_grep_open_files()
