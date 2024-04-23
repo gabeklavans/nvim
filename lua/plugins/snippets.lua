@@ -3,7 +3,8 @@ return {
     dependencies = {
         "rafamadriz/friendly-snippets",
     },
-    build = "make install_jsregexp",
+    -- No make on Windows... by deafult
+    -- build = "make install_jsregexp",
     config = function()
         local ls = require("luasnip")
         require('luasnip.loaders.from_vscode').lazy_load()
