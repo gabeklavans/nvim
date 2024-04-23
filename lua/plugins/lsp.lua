@@ -14,6 +14,7 @@ return {
     },
     config = function()
         local lsp_zero = require("lsp-zero")
+        local ts_builtin = require("telescope.builtin")
 
         lsp_zero.on_attach(function(client, bufnr)
             lsp_zero.default_keymaps({
@@ -30,6 +31,12 @@ return {
             end
             nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
             nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+            nmap('gd', ts_builtin.lsp_definitions, '[G]oto [D]efinition')
+            nmap('gr', ts_builtin.lsp_references, '[G]oto [R]eferences')
+            nmap('gI', ts_builtin.lsp_implementations, '[G]oto [I]mplementation')
+            nmap('<leader>D', ts_builtin.lsp_type_definitions, 'Type [D]efinition')
+            nmap('<leader>ds', ts_builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
+            nmap('<leader>ws', ts_builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
         end)
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
