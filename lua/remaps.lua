@@ -4,10 +4,6 @@ vim.keymap.set("n", "<leader>oe", vim.cmd.Ex, { desc = "[O]pen N[e]twr" })
 
 vim.keymap.set('n', "<leader>n", ":nohl<CR>", { desc = "[N]o Highlighting"})
 
--- indent-respecting block-moves
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
 -- keep cursor in center of the screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
