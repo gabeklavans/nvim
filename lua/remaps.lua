@@ -15,10 +15,10 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]], { desc = "[Y]ank to system clip
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "[Y]ank-default to system clipboard "})
 
 -- navigate quickfix list
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Relative next quickfix"})
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Relative previous quickfix"})
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz", { desc = "Relative next quickfix"})
+vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz", { desc = "Relative previous quickfix"})
 
 -- always be tweaking the config...
 vim.keymap.set("n", "<leader>nec", "<cmd>e ~/.config/nvim<CR>", { desc = "[N]eovim [E]dit [C]onfig"});
