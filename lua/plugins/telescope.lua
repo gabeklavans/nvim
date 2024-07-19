@@ -16,6 +16,18 @@ return {
                     end
                 },
             },
+            extensions = {
+                egrepify = {
+                    prefixes = {
+                        ["@"] = {
+                            flag = "type",
+                            cb = function(input)
+                                return input
+                            end,
+                        },
+                    },
+                },
+            },
         }
         telescope.load_extension "egrepify"
 
