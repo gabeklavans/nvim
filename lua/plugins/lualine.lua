@@ -1,5 +1,5 @@
 local function codestats()
-    return "C::S ".. require('codestats-nvim').get_xp_count()
+    return "C::S " .. require('codestats-nvim').get_xp_count()
 end
 
 return {
@@ -11,8 +11,13 @@ return {
             theme = 'auto',
         },
         sections = {
-            lualine_a = { 'mode' },
-            lualine_b = { 'branch', 'diagnostics' },
+            lualine_a = {
+                {
+                    'mode',
+                    fmt = function(str) return str:sub(1, 1) end,
+                }
+            },
+            lualine_b = { 'diagnostics' },
             lualine_c = {
                 {
                     'filename',
