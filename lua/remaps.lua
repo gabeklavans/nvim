@@ -32,3 +32,6 @@ vim.keymap.set('n', '<ca-l>', '<C-w>l', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- spel good
+vim.keymap.set('n', '<leader>sc', function() vim.o.spell = not vim.o.spell end, { desc = "Toggle [S]pell [C]heck" })
