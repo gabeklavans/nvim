@@ -26,7 +26,7 @@ return {
         vim.keymap.set("n", "<leader>qf", function()
             require("quicker").toggle()
         end, {
-            desc = "Toggle [Q]uick[f]ix list",
+            desc = "Toggle Quickfix list",
         })
     end,
 }

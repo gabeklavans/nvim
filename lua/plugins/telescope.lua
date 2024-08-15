@@ -40,15 +40,15 @@ return {
             }
         end
 
-        vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
-        vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-        vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "[S]earch [G]it" })
-        vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-        vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-        vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-        vim.keymap.set("n", "<leader>si", telescope.extensions.egrepify.egrepify, { desc = "[S]earch [i]n Files" })
-        vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "[S]earch by [G]rep on Git Root" })
-        vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-        vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
+        vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = 'Search / in Open Files' })
+        vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "Search Select Telescope" })
+        vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "Search Git" })
+        vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Search Files" })
+        vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Search Help" })
+        vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current Word" })
+        vim.keymap.set("n", "<leader>si", telescope.extensions.egrepify.egrepify, { desc = "Search in Files" })
+        vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "Search by Grep on Git Root" })
+        vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
+        vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "Search Resume" })
     end,
 }
