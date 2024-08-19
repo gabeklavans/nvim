@@ -9,10 +9,8 @@ return {
         spec = {
             { '<leader>c', desc = 'Code' },
             { '<leader>g', desc = 'Git' },
-            { '<leader>h', desc = 'Gitsigns/Hunk' },
             { '<leader>r', desc = 'Rename' },
             { '<leader>s', desc = 'Search' },
-            { '<leader>t', desc = 'Toggle' },
             { '<leader>q', desc = 'Quick views' },
         }
     },
