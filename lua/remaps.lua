@@ -9,10 +9,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- thanks asbjornHaland
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
-vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank-default to system clipboard " })
-
 -- navigate quickfix list
 vim.keymap.set("n", "<CS-J>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<CS-K>", "<cmd>cprev<CR>zz")
@@ -24,10 +20,3 @@ vim.keymap.set('n', '<CA-h>', '<C-w>h', { silent = true })
 vim.keymap.set('n', '<CA-j>', '<C-w>j', { silent = true })
 vim.keymap.set('n', '<CA-k>', '<C-w>k', { silent = true })
 vim.keymap.set('n', '<CA-l>', '<C-w>l', { silent = true })
-
--- dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- spel good
-vim.keymap.set('n', '<leader>ts', function() vim.o.spell = not vim.o.spell end, { desc = "Toggle Spell" })

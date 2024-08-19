@@ -5,12 +5,7 @@ return {
         require("abstract-autocmds").setup({
             no_autocomment_newline = true,
             open_file_last_position = true,
-            highlight_on_yank = {
-                enable = true,
-                opts = {
-                    timeout = 125,
-                },
-            },
+            highlight_on_yank = false,
             give_border = {
                 enable = true,
                 opts = {
