@@ -29,12 +29,6 @@ return {
 
                 vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
             end
-            nmap("<leader>rn", vim.lsp.buf.rename, "Rename")
-            nmap("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-            nmap('gd', ts_builtin.lsp_definitions, 'Goto Definition')
-            nmap('gr', ts_builtin.lsp_references, 'Goto References')
-            nmap('gI', ts_builtin.lsp_implementations, 'Goto Implementation')
-            nmap('<leader>D', ts_builtin.lsp_type_definitions, 'Type Definition')
             nmap('<leader>ds', ts_builtin.lsp_document_symbols, 'Document Symbols')
             nmap('<leader>ws', ts_builtin.lsp_dynamic_workspace_symbols, 'Workspace Symbols')
         end)
