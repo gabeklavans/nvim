@@ -32,3 +32,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.winblend = 0
+
+-- more mouse more problems
+vim.opt.mouse = ""
