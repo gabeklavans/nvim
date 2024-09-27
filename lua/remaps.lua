@@ -20,3 +20,6 @@ vim.keymap.set('n', '<CA-h>', '<C-w>h', { silent = true })
 vim.keymap.set('n', '<CA-j>', '<C-w>j', { silent = true })
 vim.keymap.set('n', '<CA-k>', '<C-w>k', { silent = true })
 vim.keymap.set('n', '<CA-l>', '<C-w>l', { silent = true })
+
+-- <C-^> is inconsistent and hard to reach
+vim.keymap.set('n', '<C-t>', '<C-^>', { silent = true })
