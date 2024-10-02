@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>oe", vim.cmd.Ex, { desc = "Open Netwr" })
-vim.keymap.set('n', "<leader>n", ":nohl<CR>", { desc = "No Highlighting" })
 
 -- keep cursor in center of the screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -10,10 +9,8 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- navigate quickfix list
-vim.keymap.set("n", "<CS-J>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<CS-K>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz", { desc = "Relative next quickfix" })
-vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz", { desc = "Relative previous quickfix" })
+vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>zz")
 
 -- splits
 vim.keymap.set('n', '<CA-h>', '<C-w>h', { silent = true })
