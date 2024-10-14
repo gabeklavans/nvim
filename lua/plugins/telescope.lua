@@ -40,15 +40,39 @@ return {
             }
         end
 
-        vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = 'Search / in Open Files' })
-        vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "Search Select Telescope" })
-        vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "Search Git" })
-        vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Search Files" })
-        vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Search Help" })
-        vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current Word" })
-        vim.keymap.set("n", "<leader>si", telescope.extensions.egrepify.egrepify, { desc = "Search in Files" })
-        vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "Search by Grep on Git Root" })
-        vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
-        vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "Search Resume" })
+        local function telescope_get_lsp_functions()
+            builtin.lsp_document_symbols({
+                symbols = "function",
+                prompt_title = "Search LSP Document Functions",
+            })
+        end
+
+        local function telescope_get_lsp_methods()
+            builtin.lsp_document_symbols({
+                symbols = "method",
+                prompt_title = "Search LSP Document Methods",
+            })
+        end
+
+        local function get_ts_functions()
+            builtin.treesitter({
+                symbols = "function", -- this isn't implemented in 0.1.8 for some reason
+                prompt_title = "Search TS Functions",
+            })
+        end
+
+        vim.keymap.set("n", "<leader>s/", telescope_live_grep_open_files, { desc = "search / in open files" })
+        vim.keymap.set("n", "<leader>sb", builtin.builtin, { desc = "search builtins" })
+        vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "search git" })
+        vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "search files" })
+        vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "search help" })
+        vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "search current word" })
+        vim.keymap.set("n", "<leader>si", telescope.extensions.egrepify.egrepify, { desc = "search in files" })
+        vim.keymap.set("n", "<leader>sG", ":LiveGrepGitRoot<cr>", { desc = "search by grep on git root" })
+        vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "search diagnostics" })
+        vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "search resume" })
+        vim.keymap.set("n", "<leader>ss", builtin.lsp_document_symbols, { desc = "search document symbols" })
+        vim.keymap.set("n", "<leader>st", builtin.treesitter, { desc = "search ts nodes" })
+        vim.keymap.set("n", "<leader>sf", get_ts_functions, { desc = "search ts functions" })
     end,
 }
