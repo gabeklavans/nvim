@@ -70,6 +70,14 @@ return {
                             "--header-insertion=never"
                         }
                     }
+                    local nmap = function(keys, func, desc)
+                        if desc then
+                        end
+                        desc = "clangd: " .. desc
+
+                        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+                    end
+                    nmap('<c-s>', '<CMD>ClangdSwitchSourceHeader<CR>', 'alternate source/header')
                 end,
             },
         })
