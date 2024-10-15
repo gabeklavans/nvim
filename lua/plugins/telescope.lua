@@ -54,13 +54,6 @@ return {
             })
         end
 
-        local function get_ts_functions()
-            builtin.treesitter({
-                symbols = "function", -- this isn't implemented in 0.1.8 for some reason
-                prompt_title = "Search TS Functions",
-            })
-        end
-
         vim.keymap.set("n", "<leader>s/", telescope_live_grep_open_files, { desc = "search / in open files" })
         vim.keymap.set("n", "<leader>sb", builtin.builtin, { desc = "search builtins" })
         vim.keymap.set("n", "<leader>sg", builtin.git_files, { desc = "search git" })
@@ -73,6 +66,5 @@ return {
         vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "search resume" })
         vim.keymap.set("n", "<leader>ss", builtin.lsp_document_symbols, { desc = "search document symbols" })
         vim.keymap.set("n", "<leader>st", builtin.treesitter, { desc = "search ts nodes" })
-        vim.keymap.set("n", "<leader>sf", get_ts_functions, { desc = "search ts functions" })
     end,
 }
