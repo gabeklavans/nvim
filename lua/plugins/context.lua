@@ -1,10 +1,14 @@
 return {
   "nvim-treesitter/nvim-treesitter-context",
-  init = function()
-    vim.keymap.set("n", "\\t", function()
-      require("treesitter-context").toggle()
-    end, {
-      desc = "Toggle TS-Context",
-    })
+  config = function()
+    local tscontext = require("treesitter-context")
+
+    tscontext.setup {
+      max_lines = 8,
+      multiline_threshold = 2,
+      trim_scope = "outer",
+    }
+
+    vim.keymap.set("n", "\\t", tscontext.toggle, { desc = "Toggle TS-Context" })
   end,
 }

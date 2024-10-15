@@ -2,9 +2,19 @@ local function codestats()
     return "C::S " .. require('codestats-nvim').get_xp_count()
 end
 
+local function statusline()
+    return require('nvim-treesitter').statusline({
+        indicator_size = 100,
+        type_patterns = { 'class', 'function', 'method' },
+        separator = ' -> ',
+    })
+end
+
 return {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = {
+        'nvim-tree/nvim-web-devicons',
+    },
     opts = {
         options = {
             icons_enabled = true,
@@ -35,6 +45,10 @@ return {
                 codestats },
             lualine_y = { 'progress' },
             lualine_z = { 'location' }
+        },
+        tabline = {
+            lualine_a = { 'branch' },
+            lualine_b = { statusline },
         },
     },
 
