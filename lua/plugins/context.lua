@@ -6,7 +6,7 @@ return {
     tscontext.setup {
       max_lines = 8,
       multiline_threshold = 2,
-      trim_scope = "outer",
+      trim_scope = "inner",
     }
 
     vim.keymap.set("n", "\\t", tscontext.toggle, { desc = "Toggle TS-Context" })
