@@ -79,6 +79,22 @@ return {
                     end
                     nmap('<c-s>', '<CMD>ClangdSwitchSourceHeader<CR>', 'alternate source/header')
                 end,
+
+                ["ts_ls"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.ts_ls.setup {
+                        single_file_support = false,
+                        root_dir = require('lspconfig.util').root_pattern('package.json', 'jsconfig.json')
+                    }
+                end,
+
+                denols = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.denols.setup {
+                        single_file_support = false,
+                        root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc')
+                    }
+                end
             },
         })
 
