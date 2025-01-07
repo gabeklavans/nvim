@@ -1,22 +1,17 @@
 return {
-    --- Uncomment the two plugins below if you want to manage the language servers from neovim
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
     dependencies = {
         "neovim/nvim-lspconfig",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-nvim-lua",
-        "hrsh7th/cmp-path",
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/nvim-cmp",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "saghen/blink.cmp",
     },
     config = function()
         local lsp_zero = require("lsp-zero")
         local ts_builtin = require("telescope.builtin")
 
-        lsp_zero.on_attach(function(client, bufnr)
+        lsp_zero.on_attach(function(_, bufnr)
             lsp_zero.default_keymaps({
                 buffer = bufnr,
                 preserve_mappings = false,
@@ -33,102 +28,69 @@ return {
             nmap('<leader>ws', ts_builtin.lsp_dynamic_workspace_symbols, 'Workspace Symbols')
         end)
 
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
 
         require("mason").setup({})
-        require("mason-lspconfig").setup({
+        require("mason-lspconfig").setup {
             ensure_installed = {
                 "lua_ls",
             },
-            handlers = {
-                function(server_name)
-                    require("lspconfig")[server_name].setup({
-                        capabilities = capabilities,
-                    })
-                end,
+        }
+        require("mason-lspconfig").setup_handlers {
+            -- default handler
+            function(server_name)
+                require("lspconfig")[server_name].setup {
+                    capabilities = capabilities,
+                }
+            end,
 
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    globals = { "vim", "it", "describe", "before_each", "after_each" },
-                                }
+            -- handler overrides
+            ["lua_ls"] = function()
+                local lspconfig = require("lspconfig")
+                lspconfig.lua_ls.setup {
+                    capabilities = capabilities,
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { "vim", "it", "describe", "before_each", "after_each" },
                             }
                         }
                     }
-                end,
+                }
+            end,
 
-                clangd = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.clangd.setup {
-                        capabilities = capabilities,
-                        cmd = {
-                            "clangd",
-                            "--header-insertion=never"
-                        }
+            clangd = function()
+                local lspconfig = require("lspconfig")
+                lspconfig.clangd.setup {
+                    capabilities = capabilities,
+                    cmd = {
+                        "clangd",
+                        "--header-insertion=never"
                     }
-                    local nmap = function(keys, func, desc)
-                        if desc then
-                        end
-                        desc = "clangd: " .. desc
+                }
+                local nmap = function(keys, func, desc)
+                    desc = "clangd: " .. desc
 
-                        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-                    end
-                    nmap('<c-s>', '<CMD>ClangdSwitchSourceHeader<CR>', 'alternate source/header')
-                end,
-
-                ["ts_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.ts_ls.setup {
-                        single_file_support = false,
-                        root_dir = require('lspconfig.util').root_pattern('package.json', 'jsconfig.json')
-                    }
-                end,
-
-                denols = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.denols.setup {
-                        single_file_support = false,
-                        root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc')
-                    }
+                    vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
                 end
-            },
-        })
+                nmap('<c-s>', '<CMD>ClangdSwitchSourceHeader<CR>', 'alternate source/header')
+            end,
 
-        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-        local cmp = require("cmp")
-        local cmp_action = require("lsp-zero").cmp_action()
+            ["ts_ls"] = function()
+                local lspconfig = require("lspconfig")
+                lspconfig.ts_ls.setup {
+                    single_file_support = false,
+                    root_dir = require('lspconfig.util').root_pattern('package.json', 'jsconfig.json')
+                }
+            end,
 
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
-                end,
-            },
-            mapping = cmp.mapping.preset.insert({
-                ["<Tab>"] = cmp_action.luasnip_supertab(),
-                ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
-                ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-d>"] = cmp.mapping.scroll_docs(4),
-            }),
-            preselect = "item",
-            completion = {
-                completeopt = "menu,menuone,noinsert",
-            },
-            sources = {
-                { name = "nvim_lsp" },
-                { name = "nvim_lua" },
-                { name = "luasnip" },
-                { name = "path" },
-            },
-        })
-
-        cmp.event:on(
-            "confirm_done",
-            cmp_autopairs.on_confirm_done()
-        )
+            denols = function()
+                local lspconfig = require("lspconfig")
+                lspconfig.denols.setup {
+                    single_file_support = false,
+                    root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc')
+                }
+            end
+        }
     end
 }
