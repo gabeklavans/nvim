@@ -15,6 +15,9 @@ return {
                         return { "--hidden" }
                     end
                 },
+                find_files = {
+                    previewer = false,
+                }
             },
             extensions = {
                 egrepify = {
