@@ -79,7 +79,7 @@ return {
             ["ts_ls"] = function()
                 local lspconfig = require("lspconfig")
                 lspconfig.ts_ls.setup {
-                    single_file_support = false,
+                    single_file_support = true,
                     root_dir = require('lspconfig.util').root_pattern('package.json', 'jsconfig.json')
                 }
             end,
