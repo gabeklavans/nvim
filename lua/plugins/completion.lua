@@ -30,6 +30,11 @@ return {
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
+
+        cmdline = {
+            -- it's just too different to be not annoying
+            enabled = false
+        }
     },
     opts_extend = { "sources.default" }
 }
