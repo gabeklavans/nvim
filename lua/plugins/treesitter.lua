@@ -12,10 +12,11 @@ return {
                 "cmake",
                 "comment",
                 "dockerfile",
+                "go",
                 "javascript",
                 "lua",
                 "python",
-                "vimdoc"
+                "vimdoc",
             },
             sync_install = false,
             highlight = {
