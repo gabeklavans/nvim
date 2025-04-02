@@ -1,5 +1,7 @@
 return {
     'echasnovski/mini.bracketed',
     version = false,
-    opts = {},
+    opts = {
+        jump = { suffix = '' }
+    },
 }
