@@ -18,11 +18,11 @@ return {
             python = { "isort", "black" },
             javascript = { "prettierd", "prettier", stop_after_first = true },
             typescript = { "prettierd", "prettier", stop_after_first = true },
-            html = { "prettierd", "prettier", stop_after_first = true }
+            html = { "prettierd", "prettier", stop_after_first = true },
+            markdown = { "mdformat", stop_after_first = true },
         },
     },
     init = function()
         vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
 }
-
