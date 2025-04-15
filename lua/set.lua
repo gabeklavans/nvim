@@ -52,3 +52,6 @@ if vim.env.TMUX ~= nil then
         cache_enabled = 0,
     }
 end
+
+-- customize auto-complete behavior
+vim.cmd([[set completeopt+=fuzzy,menuone,noinsert,popup,preview]])
