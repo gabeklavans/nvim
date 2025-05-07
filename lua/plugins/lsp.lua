@@ -1,19 +1,12 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason.nvim",
+		"mason-org/mason-lspconfig.nvim",
 	},
 	config = function()
 		require("mason").setup()
 		require("mason-lspconfig").setup()
-		require("mason-lspconfig").setup_handlers({
-			function(server_name)
-				vim.lsp.enable(server_name)
-			end,
-
-			-- overrides would go next, if I had any
-		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("my.lsp", {}),
