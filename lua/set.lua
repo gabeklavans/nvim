@@ -9,6 +9,7 @@ vim.opt.expandtab = false
 vim.opt.smartindent = true
 
 vim.opt.wrap = true
+vim.opt.linebreak = true
 
 -- I will not be caught off-guard by mixed spaces/tabs!!!
 vim.opt.list = true
