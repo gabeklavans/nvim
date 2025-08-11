@@ -1,8 +1,5 @@
 return {
 	"mfussenegger/nvim-lint",
-	event = {
-		"BufWritePost",
-	},
 	keys = {
 		"<leader>t",
 	},
