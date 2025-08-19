@@ -37,6 +37,7 @@ vim.opt.winblend = 0
 -- more mouse more problems
 vim.opt.mouse = ""
 
+-- handle tmux silly copy-pasteness
 if vim.env.TMUX ~= nil then
     local copy = { 'tmux', 'load-buffer', '-w', '-' }
     local paste = { 'bash', '-c', 'tmux refresh-client -l && sleep 0.05 && tmux save-buffer -' }
@@ -56,3 +57,10 @@ end
 
 -- customize auto-complete behavior
 vim.cmd([[set completeopt+=fuzzy,menuone,noinsert,popup,preview]])
+
+-- yoinked from Abstract-IDE/abstract-autocmds
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    desc = "jump to the last position when reopening a file",
+    pattern = "*",
+    command = [[ if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]],
+})
