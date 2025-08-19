@@ -15,12 +15,13 @@ return {
         -- don't treat any md file as a wiki
         vim.g.wiki_global_load = false
 
-        vim.g.wiki_select_method = {
-            pages = require("wiki.telescope").pages,
-            tags = require("wiki.telescope").tags,
-            toc = require("wiki.telescope").toc,
-            links = require("wiki.telescope").links,
-        }
+        -- TODO: make selectors for mini.pick :3
+        -- vim.g.wiki_select_method = {
+        --     pages = require("wiki.telescope").pages,
+        --     tags = require("wiki.telescope").tags,
+        --     toc = require("wiki.telescope").toc,
+        --     links = require("wiki.telescope").links,
+        -- }
 
         vim.g.wiki_tag_scan_num_lines = "all"
 
