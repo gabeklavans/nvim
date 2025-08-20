@@ -13,7 +13,7 @@ return {
         end
 
         local function search_word()
-            MiniPick.builtin.grep({ vim.fn.expand("<cword>") })
+            MiniPick.builtin.grep({ pattern = vim.fn.expand("<cword>") })
         end
 
         -- context: https://github.com/echasnovski/mini.nvim/issues/1859#issuecomment-2979332899
