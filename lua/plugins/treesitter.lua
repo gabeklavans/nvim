@@ -5,6 +5,7 @@ return {
         local configs = require("nvim-treesitter.configs")
 
         configs.setup({
+            auto_install = false,
             ensure_installed = {
                 "bash",
                 "c",
@@ -19,12 +20,7 @@ return {
                 "vimdoc",
             },
             sync_install = false,
-            highlight = {
-                enable = true,
-                disable = function(lang, bufnr)
-                    return vim.api.nvim_buf_line_count(bufnr) > 5000
-                end
-            },
+            highlight = { enable = true },
             indent = { enable = true },
         })
     end
