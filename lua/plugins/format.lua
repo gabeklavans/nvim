@@ -19,6 +19,7 @@ return {
 			typescript = { "prettierd", "prettier", stop_after_first = true },
 			html = { "prettierd", "prettier", stop_after_first = true },
 			markdown = { "mdformat", stop_after_first = true },
+			json = { "jq" },
 		},
 	},
 	init = function()
