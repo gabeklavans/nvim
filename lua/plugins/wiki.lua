@@ -65,6 +65,8 @@ return {
         vim.keymap.set("n", "[j", ":WikiJournalPrev<cr>")
         vim.keymap.set("n", "]j", ":WikiJournalNext<cr>")
         vim.keymap.set("n", "<leader>wj", ":WikiJournal<cr>")
+        vim.keymap.set("n", "<leader>ww", ":WikiJournal<cr>:WikiJournalToWeek<cr>")
+        vim.keymap.set("n", "<leader>wm", ":WikiJournal<cr>:WikiJournalToMonth<cr>")
         vim.keymap.set("n", "<leader>wsp", ":WikiPages<cr>")
         vim.keymap.set("n", "<leader>wst", ":WikiTags<cr>")
         vim.keymap.set("n", "<leader>wla", ":WikiLinkAdd<cr>")
