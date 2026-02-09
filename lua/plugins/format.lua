@@ -15,8 +15,8 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "autopep8", "isort" },
-			javascript = { "prettierd", "prettier", "biome", stop_after_first = true },
-			typescript = { "prettierd", "prettier", "biome", stop_after_first = true },
+			javascript = { "prettierd", "biome", "prettier", stop_after_first = true },
+			typescript = { "prettierd", "biome", "prettier", stop_after_first = true },
 			html = { "prettierd", "prettier", stop_after_first = true },
 			markdown = { "mdformat", stop_after_first = true },
 			json = { "jq" },
